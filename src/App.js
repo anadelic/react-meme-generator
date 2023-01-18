@@ -29,7 +29,7 @@ export default function App() {
 
         <section>
           <label>
-            Meme Template
+            Meme template
             <input
               value={meme}
               onChange={(e) => setMeme(e.currentTarget.value)}
