@@ -11,8 +11,7 @@ export default function App() {
     : `https://api.memegen.link/images/${meme}`;
 
   const downloadImage = () => {
-    let url = `https://api.memegen.link/images/${meme}`;
-    saveAs(url, 'meme');
+    saveAs(`https://api.memegen.link/images/${meme}`, 'meme');
   };
 
   return (
@@ -31,7 +30,6 @@ export default function App() {
           Meme Template:
           <input
             name="memeTemplate"
-            htmlFor="memeTemplate"
             value={meme}
             onChange={(e) => setMeme(e.currentTarget.value)}
           />
