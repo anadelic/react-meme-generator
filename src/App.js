@@ -26,34 +26,36 @@ export default function App() {
           alt="meme"
           data-test-id="meme-image"
         />
-        <label htmlFor="memeTemplate">
-          Meme Template
-          <input
-            className="memeTemplate"
-            value={meme}
-            onChange={(e) => setMeme(e.currentTarget.value)}
-          />
-        </label>
-        <label htmlFor="topText">
-          Top text
-          <input
-            className="topText"
-            value={topText}
-            onChange={(event) => {
-              setTopText(event.currentTarget.value);
-            }}
-          />
-        </label>
-        <label htmlFor="bottomText">
-          Bottom text
-          <input
-            className="bottomText"
-            value={bottomText}
-            onChange={(event) => {
-              setBottomText(event.currentTarget.value);
-            }}
-          />
-        </label>
+
+        <section>
+          <label>
+            Meme Template
+            <input
+              value={meme}
+              onChange={(e) => setMeme(e.currentTarget.value)}
+            />
+          </label>
+
+          <label>
+            Top text
+            <input
+              value={topText}
+              onChange={(event) => {
+                setTopText(event.currentTarget.value);
+              }}
+            />
+          </label>
+
+          <label>
+            Bottom text
+            <input
+              value={bottomText}
+              onChange={(event) => {
+                setBottomText(event.currentTarget.value);
+              }}
+            />
+          </label>
+        </section>
         <button onClick={downloadImage}>Download</button>
       </main>
     </body>
