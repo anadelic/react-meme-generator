@@ -27,9 +27,9 @@ export default function App() {
           data-test-id="meme-image"
         />
         <label htmlFor="memeTemplate">
-          Meme Template:
+          Meme Template
           <input
-            name="memeTemplate"
+            className="memeTemplate"
             value={meme}
             onChange={(e) => setMeme(e.currentTarget.value)}
           />
@@ -37,7 +37,7 @@ export default function App() {
         <label htmlFor="topText">
           Top text
           <input
-            name="topText"
+            className="topText"
             value={topText}
             onChange={(event) => {
               setTopText(event.currentTarget.value);
@@ -47,7 +47,7 @@ export default function App() {
         <label htmlFor="bottomText">
           Bottom text
           <input
-            name="bottomText"
+            className="bottomText"
             value={bottomText}
             onChange={(event) => {
               setBottomText(event.currentTarget.value);
