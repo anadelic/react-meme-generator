@@ -40,8 +40,8 @@ export default function App() {
             Top text
             <input
               value={topText}
-              onChange={(event) => {
-                setTopText(event.currentTarget.value);
+              onChange={(e) => {
+                setTopText(e.currentTarget.value);
               }}
             />
           </label>
@@ -50,8 +50,8 @@ export default function App() {
             Bottom text
             <input
               value={bottomText}
-              onChange={(event) => {
-                setBottomText(event.currentTarget.value);
+              onChange={(e) => {
+                setBottomText(e.currentTarget.value);
               }}
             />
           </label>
