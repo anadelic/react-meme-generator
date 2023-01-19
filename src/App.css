@@ -62,3 +62,13 @@ button {
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
+
+@media (max-width: 600px) {
+  section {
+    flex-direction: column;
+  }
+  img {
+    width: 400px;
+    height: 300px;
+  }
+}
