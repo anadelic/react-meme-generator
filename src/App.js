@@ -4,7 +4,7 @@ import { saveAs } from 'file-saver';
 import { useState } from 'react';
 
 export default function App() {
-  const [meme, setMeme] = useState('buzz');
+  const [meme, setMeme] = useState('worst');
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
   const [memes, setMemes] = useState([]);
