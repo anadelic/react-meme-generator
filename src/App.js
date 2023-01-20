@@ -1,4 +1,5 @@
 import './App.css';
+import axios from 'axios';
 import { saveAs } from 'file-saver';
 import { useState } from 'react';
 
@@ -6,9 +7,22 @@ export default function App() {
   const [meme, setMeme] = useState('buzz');
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
+  const [memes, setMemes] = useState([]);
+
+  axios
+    .get('https://api.memegen.link/templates/')
+    .then(function (response) {
+      setMemes(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   const url = topText
-    ? `https://api.memegen.link/images/${meme}/${topText}/${bottomText}.jpg`
-    : `https://api.memegen.link/images/${meme}`;
+    ? `https://api.memegen.link/images/${meme}/${topText
+        .replace('?', '~q')
+        .replace('#', '~h')}/${bottomText}`
+    : `https://api.memegen.link/images/${meme}.jpg`;
 
   const downloadImage = () => {
     saveAs(`https://api.memegen.link/images/${meme}`, 'meme');
@@ -28,6 +42,19 @@ export default function App() {
         />
 
         <section>
+          <label>
+            <select
+              value={meme}
+              onChange={(e) => setMeme(e.currentTarget.value)}
+            >
+              {memes.map((image) => (
+                <option value={image.id} key={image.id}>
+                  {image.id}
+                </option>
+              ))}
+            </select>
+          </label>
+
           <label>
             Meme template
             <input

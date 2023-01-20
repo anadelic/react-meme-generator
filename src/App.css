@@ -63,6 +63,13 @@ button {
   box-shadow: 0 9px #999;
 }
 
+select {
+  border: solid 1px #2e5077;
+  box-shadow: 7px 3px 3px #2e5077;
+  margin: 1em;
+  padding: 0.3em;
+}
+
 @media (max-width: 600px) {
   section {
     flex-direction: column;
