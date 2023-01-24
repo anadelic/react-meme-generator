@@ -1,32 +1,31 @@
 import './App.css';
-import axios from 'axios';
 import { saveAs } from 'file-saver';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
   const [meme, setMeme] = useState('worst');
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
-  const [memes, setMemes] = useState([]);
+  const [apiData, setApiData] = useState([]);
 
-  axios
-    .get('https://api.memegen.link/templates/')
-    .then(function (response) {
-      setMemes(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
+  //main Url
   const url = topText
     ? `https://api.memegen.link/images/${meme}/${topText
         .replace('?', '~q')
         .replace('#', '~h')}/${bottomText}`
     : `https://api.memegen.link/images/${meme}.jpg`;
 
+  //Downloading function
   const downloadImage = () => {
     saveAs(`https://api.memegen.link/images/${meme}`, 'meme');
   };
+  //Getting memes id from Api for drop-down list
+  useEffect(() => {
+    fetch('https://api.memegen.link/templates')
+      .then((res) => res.json())
+      .then((res) => setApiData(res))
+      .catch(() => console.log('Error'));
+  }, []);
 
   return (
     <body className="App">
@@ -47,7 +46,7 @@ export default function App() {
               value={meme}
               onChange={(e) => setMeme(e.currentTarget.value)}
             >
-              {memes.map((image) => (
+              {apiData.map((image) => (
                 <option value={image.id} key={image.id}>
                   {image.id}
                 </option>
