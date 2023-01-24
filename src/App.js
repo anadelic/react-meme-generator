@@ -8,18 +8,18 @@ export default function App() {
   const [bottomText, setBottomText] = useState('');
   const [apiData, setApiData] = useState([]);
 
-  //main Url
+  // main Url
   const url = topText
     ? `https://api.memegen.link/images/${meme}/${topText
         .replace('?', '~q')
         .replace('#', '~h')}/${bottomText}`
     : `https://api.memegen.link/images/${meme}.jpg`;
 
-  //Downloading function
+  // Downloading function
   const downloadImage = () => {
     saveAs(`https://api.memegen.link/images/${meme}`, 'meme');
   };
-  //Getting memes id from Api for drop-down list
+  // Getting memes id from Api for drop-down list
   useEffect(() => {
     fetch('https://api.memegen.link/templates')
       .then((res) => res.json())
