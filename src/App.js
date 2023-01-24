@@ -10,9 +10,7 @@ export default function App() {
 
   // main Url
   const url = topText
-    ? `https://api.memegen.link/images/${meme}/${topText
-        .replace('?', '~q')
-        .replace('#', '~h')}/${bottomText}`
+    ? `https://api.memegen.link/images/${meme}/${topText}/${bottomText}.jpg`
     : `https://api.memegen.link/images/${meme}.jpg`;
 
   // Downloading function
