@@ -15,7 +15,7 @@ export default function App() {
 
   // Downloading function
   const downloadImage = () => {
-    saveAs(`https://api.memegen.link/images/${meme}`, 'meme');
+    saveAs(`https://api.memegen.link/images/${meme}/${topText}/${bottomText}`, 'meme');
   };
   // Getting memes id from Api for drop-down list
   useEffect(() => {
