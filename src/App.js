@@ -11,7 +11,7 @@ export default function App() {
   // main Url
   const url = topText
     ? `https://api.memegen.link/images/${meme}/${topText}/${bottomText}.jpg`
-    : `https://api.memegen.link/images/${meme}.jpg`;
+    : `https://api.memegen.link/images/${meme}/_/${bottomText}.jpg`;
 
   // Downloading function
   const downloadImage = () => {
